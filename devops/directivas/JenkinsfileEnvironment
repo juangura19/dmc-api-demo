@@ -35,12 +35,12 @@ pipeline {
             environment {
                 RESULT = """${sh(
                         returnStdout: true,
-                        script: 'echo "hola mundo" '
+//                        script: 'echo "hola mundo" '
+                        script: 'cat /etc/*release '
                 )}"""
             }
             steps {
                 sh 'echo $RESULT'
-
             }
         }
     }
