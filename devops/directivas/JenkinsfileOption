@@ -5,16 +5,20 @@ pipeline {
         }
     }
     options {
-        //ansiColor('xterm’) // plugin
-        timestamps()
+//        timestamps()
 //        timeout(time: 1, unit: 'MINUTES')
         timeout(time: 2, unit: 'SECONDS')
-        retry(4)
-        timeout(time: 1, unit: 'HOURS')
+//        retry(4)
+//        timeout(time: 1, unit: 'HOURS')
     }
 
     stages {
-        stage ('Test') {
+        stage('Test') {
+            options {
+//        timeout(time: 1, unit: 'MINUTES')
+//                timeout(time: 2, unit: 'SECONDS')
+                retry(4)
+            }
             steps {
                 sh 'aws configure'
             }
