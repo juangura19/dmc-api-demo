@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    parameters {
+        booleanParam(name: 'TOOGLE', defaultValue: false, description: 'Yes or Not')
+    }
+
+    stages {
+        when {
+            expression {
+                return params.UPLOAD ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Toggle: ${params.TOGGLE}"
+
+            }
+        }
+    }
+}
