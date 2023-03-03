@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'echo ${env.ARTIFACT}'
+//                sh 'echo ${env.ARTIFACT}'
                 sh 'echo $ARTIFACT'
                 sh 'echo ${env.JOB_NAME}'
                 sh 'echo ${env.WORKSPACE}'
