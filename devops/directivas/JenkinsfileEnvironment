@@ -35,7 +35,7 @@ pipeline {
             environment {
                 RESULT = """${sh(
                         returnStdout: true,
-                        script: 'echo "$TEST_LEVEL2" '
+                        script: 'echo "hola mundo" '
                 )}"""
             }
             steps {
