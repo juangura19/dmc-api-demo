@@ -4,7 +4,7 @@ pipeline {
         timestamps()
 //        timeout(time: 1, unit: 'MINUTES')
 //        timeout(time: 2, unit: 'SECONDS')
-        retry(4)
+//        retry(4)
         timeout(time: 1, unit: 'HOURS')
     }
 
