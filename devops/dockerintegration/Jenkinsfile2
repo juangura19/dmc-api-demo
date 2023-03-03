@@ -1,18 +1,14 @@
 pipeline {
     agent {
         docker {
-            image 'amazon/aws-cli:latest'
-            args '--entrypoint=bash'
+            image 'mlungwsr/ubuntu-awscli'
         }
     }
     stages {
         stage ('Test') {
             steps {
-                sh 'cat /etc/*release'
-                sh 'aws --version'
+                sh 'cat ~/.aws/config'
             }
         }
-
     }
-
 }
