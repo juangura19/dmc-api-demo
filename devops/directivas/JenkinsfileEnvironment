@@ -6,7 +6,6 @@ pipeline {
         WORKSPACE = "${env.WORKSPACE}"
         TEST_LEVEL1 = "SUPER"
     }
-
     stages {
         stage('Test 1') {
             environment {
@@ -31,6 +30,7 @@ pipeline {
                 sh 'echo $TEST_LEVEL1'
                 sh 'echo $TEST_LEVEL2'
             }
+        }
             stage('Test Environment 3') {
                 steps {
                     RESULT = """${sh(
@@ -42,6 +42,5 @@ pipeline {
                     }
                 }
             }
-        }
     }
 }
