@@ -31,6 +31,15 @@ pipeline {
                 sh 'echo $TEST_LEVEL1'
                 sh 'echo $TEST_LEVEL2'
             }
+            steps {
+                RESULT = """${sh(
+                        returnStdout: true,
+                        script: 'echo "$TEST_LEVEL2" '
+                )}"""
+                if (RESULT == ""){
+                    println("vacío")
+                }
+            }
         }
     }
 }
