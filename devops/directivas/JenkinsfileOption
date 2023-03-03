@@ -1,14 +1,7 @@
 pipeline {
     agent {
-        options {
-            timestamps()
-//        timeout(time: 1, unit: 'MINUTES')
-//        timeout(time: 2, unit: 'SECONDS')
-            retry(4)
-//            timeout(time: 1, unit: 'HOURS')
-        }
         docker {
-            image 'amazonlinux'
+            image 'node:7-alpine'
         }
     }
     options {
