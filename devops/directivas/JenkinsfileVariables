@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo ${env.BUILD_URL}'
+                sh 'echo ${env.JOB_NAME}'
+                sh 'echo ${env.BUILD_NUMBER}'
+                sh 'echo ${env.BUILD_URL}'
+                sh 'echo ${env.WORKSPACE}'
+            }
+        }
+    }
+}

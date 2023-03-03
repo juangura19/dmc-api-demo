@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Test') {
+            options {
+                retry(4)
+            }
+            steps {
+                sh 'aws configure'
+            }
+        }
+    }
+}
