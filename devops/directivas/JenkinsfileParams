@@ -10,8 +10,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo $ARTIFACT'
-                sh 'echo ${env.JOB_NAME}'
-                sh 'echo ${env.WORKSPACE}'
+                sh 'echo $JOB_NAME'
+                sh 'echo $WORKSPACE'
             }
         }
     }
