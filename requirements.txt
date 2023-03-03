@@ -1,3 +1,5 @@
+flask-restful
+Flask-RESTful==0.3.7
 alembic==1.0.11
 aniso8601==7.0.0
 Click==7.0
@@ -5,7 +7,6 @@ entrypoints==0.3
 flake8==3.7.7
 Flask==1.1.0
 Flask-Migrate==2.5.2
-Flask-RESTful==0.3.7
 Flask-SQLAlchemy==2.4.0
 itsdangerous==1.1.0
 Jinja2==2.10.1
