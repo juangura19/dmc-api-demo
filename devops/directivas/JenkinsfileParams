@@ -1,13 +1,18 @@
 pipeline {
     agent any
+    environment {
+        ARTIFACT              = "${env.BUILD_NUMBER}.zip"
+        JOBNAME = "Job ${env.JOB_NAME} Build ${env.BUILD_NUMBER} URL ${env.BUILD_URL}"
+        WORKSPACE = "${env.WORKSPACE}"
+    }
 
     stages {
         stage('Test') {
-            options {
-                retry(4)
-            }
             steps {
-                sh 'aws configure'
+                sh 'echo ${env.ARTIFACT}'
+                sh 'echo $ARTIFACT'
+                sh 'echo ${env.JOB_NAME}'
+                sh 'echo ${env.WORKSPACE}'
             }
         }
     }
