@@ -31,16 +31,15 @@ pipeline {
                 sh 'echo $TEST_LEVEL2'
             }
         }
-            stage('Test Environment 3') {
-                steps {
-                    RESULT = """${sh(
-                            returnStdout: true,
-                            script: 'echo "$TEST_LEVEL2" '
-                    )}"""
-                    if (RESULT == "") {
-                        println("vacío")
-                    }
-                }
+        stage('Test Environment 3') {
+            steps {
+                RESULT = """${sh(
+                        returnStdout: true,
+                        script: 'echo "$TEST_LEVEL2" '
+                )}"""
+                sh 'echo $RESULT'
+                sh 'echo RESULT'
             }
+        }
     }
 }
