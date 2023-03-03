@@ -22,7 +22,10 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'aws s3 ls'
+                sh 'aws cloudformation create-stack  --stack-name mystack ' +
+                        '--template-body file://tmp/data/WebServerSecurityGroup'
+//                        '\\\n' +
+//                        '  --parameters ParameterKey=Parm1,ParameterValue=test1 ParameterKey=Parm2,ParameterValue=test2'
             }
         }
     }
