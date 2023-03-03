@@ -7,9 +7,9 @@ pipeline {
         TEST_LEVEL1 = "SUPER"
     }
     stages {
-        stage ("Test") {
+        stage("Test") {
             steps {
-                parallel (
+                parallel(
                         unit: {
                             echo "pruebas unitarias"
                         },
@@ -22,4 +22,5 @@ pipeline {
                 )
             }
         }
+    }
 }
