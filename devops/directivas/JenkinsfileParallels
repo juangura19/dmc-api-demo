@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    environment {
+        ARTIFACT = "${env.BUILD_NUMBER}.zip"
+        JOBNAME_DESCRIPTION = "Job ${env.JOB_NAME} Build ${env.BUILD_NUMBER} URL ${env.BUILD_URL}"
+        WORKSPACE = "${env.WORKSPACE}"
+        TEST_LEVEL1 = "SUPER"
+    }
+    stages {
+        stage ("Test") {
+            steps {
+                parallel (
+                        unit: {
+                            echo "pruebas unitarias"
+                        },
+                        syntax: {
+                            echo "pruebas de sintaxis"
+                        },
+                        linter: {
+                            echo "flake8"
+                        }
+                )
+            }
+        }
+}
