@@ -58,7 +58,7 @@ pipeline {
           sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
 
           // TODO: mejorar con script
-          sh "docker push mario21ic/dmc-api:${env.BUILD_NUMBER}"
+          sh "docker push francisjosue/dmc-api:${env.BUILD_NUMBER}"
 
           sh "docker logout"
         }

@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   api:
-    image: mario21ic/dmc-api:latest
+    image: francisjosue/dmc-api:latest
     build:
       context: ./
     volumes:
