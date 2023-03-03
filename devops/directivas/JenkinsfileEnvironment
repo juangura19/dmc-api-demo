@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    environment {
+        ARTIFACT = "${env.BUILD_NUMBER}.zip"
+        JOBNAME_DESCRIPTION = "Job ${env.JOB_NAME} Build ${env.BUILD_NUMBER} URL ${env.BUILD_URL}"
+        WORKSPACE = "${env.WORKSPACE}"
+        TEST_LEVEL1 = "SUPER"
+    }
+
+    stages {
+        stage('Test') {
+            environment {
+                TEST_LEVEL2 = "HIGH"
+            }
+            steps {
+                sh 'echo $ARTIFACT'
+                sh 'echo $JOB_NAME'
+                sh 'echo $JOBNAME_DESCRIPTION'
+                sh 'echo $TEST_LEVEL1'
+                sh 'echo $TEST_LEVEL2'
+            }
+        }
+        stage('Test Environment') {
+            environment {
+                TEST_LEVEL3 = "LOW"
+            }
+            steps {
+                sh 'echo $JOB_NAME'
+                sh 'echo $JOBNAME_DESCRIPTION'
+                sh 'echo $TEST_LEVEL3'
+                sh 'echo $TEST_LEVEL1'
+                sh 'echo $TEST_LEVEL2'
+            }
+        }
+    }
+}

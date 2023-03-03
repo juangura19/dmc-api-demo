@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        ARTIFACT              = "${env.BUILD_NUMBER}.zip"
+        ARTIFACT = "${env.BUILD_NUMBER}.zip"
         JOBNAME = "Job ${env.JOB_NAME} Build ${env.BUILD_NUMBER} URL ${env.BUILD_URL}"
         WORKSPACE = "${env.WORKSPACE}"
     }
