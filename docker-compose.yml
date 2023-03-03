@@ -6,9 +6,9 @@ services:
       context: ./
     volumes:
       - ./:/app/
-#    environment:
-#      FLASK_APP: src/api.py
-#    command: ["flask", "run", "-h", "0.0.0.0", "-p", "8080"]
-    command: ["./start.sh"]
+    environment:
+      FLASK_APP: src/api.py
+    command: ["flask", "run", "-h", "0.0.0.0", "-p", "8080"]
+#    command: ["./start.sh"]
     ports:
       - 8081:8080
