@@ -4,12 +4,13 @@ pipeline {
             image 'amazonlinux'
         }
     }
-//    options {
-//        //ansiColor('xterm’) // plugin
-//        timestamps()
+    options {
+        //ansiColor('xterm’) // plugin
+        timestamps()
 //        timeout(time: 1, unit: 'MINUTES')
-////        timeout(time: 1, unit: 'HOURS')
-//    }
+        timeout(time: 2, unit: 'SECONDS')
+//        timeout(time: 1, unit: 'HOURS')
+    }
 
     stages {
         stage ('Test') {
