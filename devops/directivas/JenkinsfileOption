@@ -1,0 +1,21 @@
+pipeline {
+    agent {
+        docker {
+            image 'amazonlinux'
+        }
+    }
+//    options {
+//        //ansiColor('xterm’) // plugin
+//        timestamps()
+//        timeout(time: 1, unit: 'MINUTES')
+////        timeout(time: 1, unit: 'HOURS')
+//    }
+
+    stages {
+        stage ('Test') {
+            steps {
+                sh 'aws configure'
+            }
+        }
+    }
+}
