@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'amazonlinux:latest'
+            image 'amazon/aws-cli:latest'
         }
     }
     stages {
