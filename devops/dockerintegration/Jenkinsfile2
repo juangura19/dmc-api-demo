@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'amazon/aws-cli:latest'
-            args '--entrypoint=/bin/bash'
+            args '--entrypoint=bash'
         }
     }
     stages {
@@ -12,5 +12,7 @@ pipeline {
                 sh 'aws --version'
             }
         }
+
     }
+
 }

@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        docker {
+            image 'ubuntu-awscli'
+        }
+    }
+
+    stages {
+        stage ('Connection') {
+            steps {
+                sh "aws configure set aws_access_key_id AKIA4GQAF5VVH5SMF4KR"
+                sh "aws configure set aws_secret_access_key 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"
+                sh "aws configure set profile.dmc-cloudformation-user.region us-east-2"
+                sh "aws configure set region us-east-2"
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'aws --version'
+            }
+        }
+        stage ('Deploy') {
+            steps {
+                sh 'aws s3 ls'
+            }
+        }
+    }
+}
