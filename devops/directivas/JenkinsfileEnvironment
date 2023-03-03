@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Test') {
             environment {
-                TEST_LEVEL2 = "HIGH"
+                TEST_LEVEL2 = "LOW"
             }
             steps {
                 sh 'echo $ARTIFACT'
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Test Environment') {
             environment {
-                TEST_LEVEL3 = "LOW"
+                TEST_LEVEL3 = "HIGH"
             }
             steps {
                 sh 'echo $JOB_NAME'
