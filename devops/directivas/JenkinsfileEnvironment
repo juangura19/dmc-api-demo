@@ -33,12 +33,20 @@ pipeline {
         }
         stage('Test Environment 3') {
             steps {
-                RESULT = """${sh(
+                String RESULT = """${sh(
                         returnStdout: true,
                         script: 'echo "$TEST_LEVEL2" '
                 )}"""
                 sh 'echo $RESULT'
                 sh 'echo RESULT'
+
+                String str1 = "123";
+                String str2 = new String("123");
+                if(str1 == str2){
+                    println("equal");
+                }else{
+                    println("Not equal");
+                }
             }
         }
     }
