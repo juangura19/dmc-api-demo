@@ -14,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Hello ${params.PERSON}"
+                echo "${params.DOCKERHUB_CREDENTIAL}"
 
                 echo "Biography: ${params.BIOGRAPHY}"
 
