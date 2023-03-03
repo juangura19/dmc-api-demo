@@ -32,13 +32,14 @@ pipeline {
             }
         }
         stage('Test Environment 3') {
-            steps {
-                String RESULT = """${sh(
+            environment {
+                RESULT = """${sh(
                         returnStdout: true,
                         script: 'echo "$TEST_LEVEL2" '
                 )}"""
+            }
+            steps {
                 sh 'echo $RESULT'
-                sh 'echo RESULT'
 
                 String str1 = "123";
                 String str2 = new String("123");
