@@ -1,0 +1,19 @@
+docker run -it -v C:/Users/Usuario/Desktop/DMC/DEVOPS/sesion6/temp:/tmp/data mlungwsr/ubuntu-awscli bash
+
+aws configure set aws_access_key_id AKIA4GQAF5VVKR
+aws configure set aws_secret_access_key vXmNhnq3c7+Ykyi25p3kh4LQ33w/WPSWN26
+aws configure set profile.dmc-cloudformation-user.region us-east-2
+configure set region us-east-2
+
+cat ~/.aws/config
+
+aws s3 ls https://s3.us-east-2.amazonaws.com/cf-templates-ykp3aos3v8cd-us-east-2/
+An error occurred (AccessDenied) when calling the ListObjectsV2 operation: Access Denied
+aws s3 ls s3.us-east-2.amazonaws.com
+
+aws cloudformation create-stack  --stack-name myteststack --template-body file://tmp/data/WebServerSecurityGroup
+
+aws cloudformation create-stack \
+  --stack-name myteststack \
+  --template-body https://s3.us-east-2.amazonaws.com/cf-templates-ykp3aos3v8cd-us-east-2/2023062bE3-template1t4jvhk6ckun \
+  --parameters ParameterKey=Parm1,ParameterValue=test1 ParameterKey=Parm2,ParameterValue=test2
