@@ -18,12 +18,12 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'aws --version'
-                sh 'pwd'
+                sh 'aws s3 ls'
             }
         }
         stage ('Deploy') {
             steps {
-                sh 'aws cloudformation create-stack  --stack-name mystack ' +
+                sh 'aws cloudformation create-stack  --stack-name mystack-dmc-prueba ' +
                         '--template-body file://cloudformation/WebServerSecurityGroup'
 //                        '\\\n' +
 //                        '  --parameters ParameterKey=Parm1,ParameterValue=test1 ParameterKey=Parm2,ParameterValue=test2'

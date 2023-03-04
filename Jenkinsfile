@@ -31,22 +31,6 @@ pipeline {
       }
     }
 
-    stage ("Test") {
-      steps {
-        parallel (
-          unit: {
-            echo "pruebas unitarias"
-          },
-          syntax: {
-            echo "pruebas de sintaxis"
-          },
-          linter: {
-            echo "flake8"
-          }
-        )
-      }
-    }
-
     stage ("Upload") {
       when {
         expression {
