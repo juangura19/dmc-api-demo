@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'mlungwsr/ubuntu-awscli'
+            args '-u 0'
         }
     }
     stages {
