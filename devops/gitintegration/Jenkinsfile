@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage ('Repository') {
+        stage ('1 pasoRepository') {
             steps {
                 checkout scm
             }
         }
-        stage ('Test & Build') {
+        stage ('2 pasoTest & Build') {
             steps {
                 sh 'echo test_build building'
             }

@@ -5,14 +5,14 @@ pipeline {
     }
     stages {
 
-        stage('Test') {
+        stage('DEPLOY ? ') {
             when {
                 expression {
                     return params.UPLOAD ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
                 }
             }
             steps {
-                echo "Toggle: ${params.TOGGLE}"
+                echo "DEPLOYING Toggle: ${params.TOGGLE}"
 
             }
         }
