@@ -49,6 +49,25 @@ pipeline {
       }
     }
 
+    stage ("Deploy") {
+      steps {
+        script {
+          try {
+            def IMAGE_TAG = env.BUILD_NUMBER
+            sh "docker stop dmc-api"
+            sh "docker rm dmc-api"
+            sh "docker run -d -p 8080:8080 --name dmc-api francisjosue/dmc-api:${IMAGE_TAG}"
+            sh "docker ps | grep dmc-api"
+            echo "Deployment completed successfully"
+          } catch (Exception e) {
+            echo "Deployment failed"
+            currentBuild.result = 'FAILURE'
+            error(e)
+          }
+        }
+      }
+    }
+
   }
 
   post {
